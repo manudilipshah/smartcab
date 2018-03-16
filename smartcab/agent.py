@@ -96,9 +96,11 @@ class LearningAgent(Agent):
 
 	maxQ = None
 
-	for k in self.Q[state]:
-            if (maxQ == None) or (maxQ < self.Q[state][k]):
-                maxQ = self.Q[state][k]
+	#self.Q[state] = {None: 0.0, 'forward': 0.0, 'left': 0.0 , 'right': 0.0}
+        #Q[state][None] will have the value
+	for key in self.Q[state]:
+            if (maxQ == None) or (maxQ < self.Q[state][key]):
+                maxQ = self.Q[state][key]
 
 	return maxQ 
 

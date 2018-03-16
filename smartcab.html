@@ -11883,7 +11883,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li><em>The smartcab is moving between trials.</em></li>
+<li><em>The smartcab is not moving between trials.</em></li>
 <li><em>Driving agent is recieving awards for being idle on a red light.</em></li>
 <li><em>Red color brings rewards and green brings defects.</em></li>
 </ul>
@@ -13218,7 +13218,15 @@ P9z2D5f/GF/gAAAAAElFTkSuQmCC
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li>The features which are relevant for both safety and efficiency are waypoint and all inputs except right input.Oncoming and light are required for safety as these help smartcab adhere to rules and avoid collision.Waypoint defines the direction the smartcab should head towards in order to reach the destination.Right is not selected as these does not have a direct impact for smartcab's ability to learn on how to reach the destination as per the rules.Similarly deadline is not required for safety and efficiency.</li>
+<li>The features which are relevant for both safety and efficiency are waypoint and all inputs except right input.</li>
+<li>Oncoming and light are required for safety as these help smartcab adhere to rules and avoid collision.</li>
+<li>Waypoint defines the direction the smartcab should head towards in order to reach the destination.</li>
+<li>Right is not selected as these does not have a direct impact for smartcab's ability to learn on how to reach the destination as per the rules.It is not important because of the U.S. Right-of-Way rules.</li>
+<li><p>Similarly deadline is not required for safety and efficiency.Also there is no direct reward for reaching early.This was also not selected as it would have bloated up the states.The agent anyways always tries to take the shortest path and deadline as a factor won't change it.</p>
+</li>
+<li><p>Right and deadline were also omitted to keep the state space smaller</p>
+</li>
+<li>Left is included as vehicle should be aware of vehicles coming from left to prevent collision.</li>
 </ul>
 
 </div>
@@ -16313,7 +16321,7 @@ PAAAAABJRU5ErkJggg==
    -- forward : 0.00
    -- right : 0.99
    -- left : 0.00</p>
-<p>The optimal policy would be to go right instead the agent chooses to wait.This can be handled by more trials so that agent is aware of more rewards</p>
+<p>The optimal policy would be to go wait but instead the agent chooses to go right.This can be handled by more trials so that agent is aware of more rewards</p>
 </li>
 </ul>
 
@@ -16345,9 +16353,9 @@ PAAAAABJRU5ErkJggg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li><p>Smartcab's objective is to optimize reaching the destination by learning traffic rules.Both of them are highly dependent on current reward</p>
+<li><p>Smartcab's objective is to optimize reaching the destination by learning traffic rules.Both of them are highly dependent on current reward.Also the agent has visibility only till the next intersection, he can only take decision based on the current location and the action taken at the current location is always optimal hence there is nothing different the agent can do</p>
 </li>
-<li><p>Environment has states which are independent of previous states.Only waypoint in the current state has an effect by the action taken in previous state.But is that is taken into account Q-Learning might get impacted</p>
+<li><p>Environment has states which are independent of previous states.Only waypoint in the current state has an effect by the action taken in previous state.But is that is taken into account Q-Learning might get impacted.Also the environment is dynamic and hence future rewards don't make sense</p>
 </li>
 </ul>
 
